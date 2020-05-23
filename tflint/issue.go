@@ -25,6 +25,7 @@ type RuleObject struct {
 type RuleObjectData struct {
 	Name     string
 	Enabled  bool
+	Message  string
 	Severity string
 	Link     string
 }
@@ -34,6 +35,7 @@ func newObjectFromRule(rule Rule) *RuleObject {
 		Data: &RuleObjectData{
 			Name:     rule.Name(),
 			Enabled:  rule.Enabled(),
+			Message:  rule.Message(),
 			Severity: rule.Severity(),
 			Link:     rule.Link(),
 		},
@@ -45,6 +47,11 @@ func (r *RuleObject) Name() string { return r.Data.Name }
 
 // Enabled is a reference method to internal data
 func (r *RuleObject) Enabled() bool { return r.Data.Enabled }
+
+// Message is a reference method to internal data
+func (r *RuleObject) Message() string {
+	return r.Data.Message
+}
 
 // Severity is a reference method to internal data
 func (r *RuleObject) Severity() string { return r.Data.Severity }

@@ -16,6 +16,7 @@ type Runner interface {
 type Rule interface {
 	Name() string
 	Enabled() bool
+	Message() string
 	Severity() string
 	Link() string
 	Check(Runner) error
